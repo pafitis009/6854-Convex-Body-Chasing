@@ -1,0 +1,5 @@
+// Everyone
+
+class Point{
+    ...
+}
