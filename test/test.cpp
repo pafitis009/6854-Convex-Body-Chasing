@@ -70,4 +70,3 @@ void test2D(int testNum) {
     assert(1 == 1);
     printf("Test [%s] ran succesfully!\n", getTestname(test_type_e::All[testNum]));
 }
-
