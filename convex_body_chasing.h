@@ -1,5 +1,5 @@
 // Everyone
 
 class Point{
-    ...
-}
+
+};
