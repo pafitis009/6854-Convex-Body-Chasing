@@ -1,5 +1,5 @@
-#include <vector>
 #include <assert.h>
+#include <vector>
 
 using namespace std;
 
@@ -30,6 +30,12 @@ public:
 
         return Point(new_coordinates, dimension);
     }
+
+    void update(int index, double new_coordinate){
+        assert(index < d);
+
+        coordinates[index] = new_coordinate;
+    }
 };
 
 Point::Point (std::vector<double> a, int b){
@@ -52,7 +58,27 @@ class Shape{
     int n;
     int d;
 public:
-    Shape(std::vector<Point>, int dimension, int N);
+    Shape(int dimension);
+
+    void insert(Point a){
+        assert(a.get_dimension() == d);
+        points.push_back(a);
+        n++;
+    }
+
+    Point get_point(int index){
+        assert (index < n);
+        return points[index];
+    }
+
+    std::vector<Point> get_points(){
+        return points;
+    }
+
+    int get_n(){
+        return n;
+    }
+
     bool check_if_inside(Point a){
         if(d == 2){
             std::vector<double> p; p.clear();p.push_back(1e8);p.push_back(1e8);
@@ -66,8 +92,12 @@ public:
     }
 };
 
-Shape::Shape (std::vector<Point> a, int dimension, int N){
-    points = a;
+Shape::Shape (int dimension){
+    vector<Point> e; e.clear();
+    points = e;
     d = dimension;
-    n = N;
+    n = 0;
 }
+
+std::vector <Point> follow_steiner_point(std::vector<Shape>, Point x0);
+void solve_sum(int x, int y, int &ans);
