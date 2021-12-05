@@ -92,9 +92,6 @@ Point compute2DPolygonSteiner (std::vector<Point> vertices, int vertexCount){
     for (i=0; i<vertexCount-1; ++i)
     {
 
-
-
-
         x0 = edge[i].get_coordinate(0);
         y0 = edge[i].get_coordinate(1);
         x1 = edge[i+1].get_coordinate(0);
@@ -104,8 +101,8 @@ Point compute2DPolygonSteiner (std::vector<Point> vertices, int vertexCount){
         double cos= x0*x1+y0*y1;
         double the= acos(cos);
 
-        steiner.update(0,steiner.get_coordinate(0)+the/angle*vertices[i].get_coordinate(0));
-        steiner.update(1,steiner.get_coordinate(1)+the/angle*vertices[i].get_coordinate(1));
+        steiner.update(0,steiner.get_coordinate(0)+the/angle*vertices[i+1].get_coordinate(0));
+        steiner.update(1,steiner.get_coordinate(1)+the/angle*vertices[i+1].get_coordinate(1));
     }
         x0 = edge[i].get_coordinate(0);
         y0 = edge[i].get_coordinate(1);
@@ -116,8 +113,8 @@ Point compute2DPolygonSteiner (std::vector<Point> vertices, int vertexCount){
         double cos= x0*x1+y0*y1;
         double the= acos(cos);
 
-        steiner.update(0,steiner.get_coordinate(0)+the/angle*vertices[i].get_coordinate(0));
-        steiner.update(1,steiner.get_coordinate(1)+the/angle*vertices[i].get_coordinate(1));
+        steiner.update(0,steiner.get_coordinate(0)+the/angle*vertices[0].get_coordinate(0));
+        steiner.update(1,steiner.get_coordinate(1)+the/angle*vertices[0].get_coordinate(1));
 
 
 
@@ -125,7 +122,7 @@ Point compute2DPolygonSteiner (std::vector<Point> vertices, int vertexCount){
 
 Point Steiner(Shape s){
 
-    return 
+    return compute2DPolygonSteiner(s.get_points(),(s.get_points()).size());
 }
 
 Point Centroid(Shape s){
