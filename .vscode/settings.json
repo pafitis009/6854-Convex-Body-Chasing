@@ -61,7 +61,8 @@
         "unordered_map": "cpp",
         "utility": "cpp",
         "vector": "cpp",
-        "convex_body_chasing.h": "c"
+        "convex_body_chasing.h": "c",
+        "clocale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

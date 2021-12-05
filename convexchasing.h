@@ -12,6 +12,11 @@ public:
     int get_dimension(){return d;};
     double get_coordinate(int index){return coordinates[index];};
     std::vector<double> get_coordinates(){return coordinates;};
+
+    Point (std::vector<double> a, int b){
+        coordinates = a;
+        d = b;
+    }
     
     Point add(Point b){
         assert(d == b.get_dimension());
@@ -38,10 +43,7 @@ public:
     }
 };
 
-Point::Point (std::vector<double> a, int b){
-    coordinates = a;
-    d = b;
-}
+
 
 bool ccw(Point A, Point B, Point C ){
     return (C.get_coordinate(1)-A.get_coordinate(1)) * (B.get_coordinate(0)-A.get_coordinate(0)) > 
