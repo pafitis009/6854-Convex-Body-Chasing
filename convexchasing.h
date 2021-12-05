@@ -30,7 +30,7 @@ public:
 
         return Point(new_coordinates, dimension);
     }
-
+    
     void update(int index, double new_coordinate){
         assert(index < d);
 

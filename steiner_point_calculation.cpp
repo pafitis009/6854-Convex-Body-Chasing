@@ -1,6 +1,6 @@
 // Binwei
 
-Point Steiner(K, R, e, d){
+Point Steiner(K){
 
     Point x; 
 
