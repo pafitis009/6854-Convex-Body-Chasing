@@ -116,8 +116,7 @@ Point compute2DPolygonSteiner (std::vector<Point> vertices, int vertexCount){
         steiner.update(0,steiner.get_coordinate(0)+the/angle*vertices[0].get_coordinate(0));
         steiner.update(1,steiner.get_coordinate(1)+the/angle*vertices[0].get_coordinate(1));
 
-
-
+    return vertices[0];
 }
 
 Point Steiner(Shape s){

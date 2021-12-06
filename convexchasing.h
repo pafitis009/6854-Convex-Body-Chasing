@@ -8,15 +8,13 @@ class Point{
     int d;
 
 public:
-    Point(std::vector<double>, int);
+    Point(std::vector<double> a, int b){
+        coordinates = a;
+        d = b;
+    };
     int get_dimension(){return d;};
     double get_coordinate(int index){return coordinates[index];};
     std::vector<double> get_coordinates(){return coordinates;};
-
-    Point (std::vector<double> a, int b){
-        coordinates = a;
-        d = b;
-    }
     
     Point add(Point b){
         assert(d == b.get_dimension());
@@ -60,7 +58,12 @@ class Shape{
     int n;
     int d;
 public:
-    Shape(int dimension);
+    Shape (int dimension){
+        vector<Point> e; e.clear();
+        points = e;
+        d = dimension;
+        n = 0;
+    }
 
     void insert(Point a){
         assert(a.get_dimension() == d);
@@ -94,12 +97,7 @@ public:
     }
 };
 
-Shape::Shape (int dimension){
-    vector<Point> e; e.clear();
-    points = e;
-    d = dimension;
-    n = 0;
-}
 
-std::vector <Point> follow_steiner_point(std::vector<Shape>, Point x0);
+vector <Point> follow_steiner_point(vector<Shape> v, Point x0);
+Point compute2DPolygonCentroid(std::vector<Point> vertices, int vertexCount);
 void solve_sum(int x, int y, int &ans);

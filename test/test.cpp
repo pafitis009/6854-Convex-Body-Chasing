@@ -1,4 +1,5 @@
 #include "test.h"
+#include "../convexchasing.h"
 
 #include <math.h>
 #include <assert.h>
@@ -60,7 +61,7 @@ void test_sum(int testNum) {
     int y = rand() % 20;
     int ans = -1; 
 
-    solve_sum(x, y, ans);
+    // solve_sum(x, y, ans);
     assert (ans == x + y);
     
     printf("Test [%s] ran succesfully!\n", getTestname(test_type_e::All[testNum]));
@@ -108,7 +109,7 @@ void test2D_follow_squares(int testNum) {
     Point x0 = Point(start, 2);
 
     double OPT = 1023 * sqrt(2);
-
+    
     std::vector<Point> path = follow_steiner_point(bodies, x0);
     double ans = get_sum_of_path(path);
 

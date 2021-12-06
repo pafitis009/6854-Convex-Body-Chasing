@@ -1,8 +1,15 @@
-test: test.o
-	g++ test.o -o test
+test: test.o convex_chasing.o steiner_point_calculation.o
+	g++ test.o convex_chasing.o steiner_point_calculation.o -o test
+
+convex_chasing.o: ../convex_chasing.cpp ../convexchasing.h 
+	g++ -c ../convex_chasing.cpp
+
+steiner_point.o: ../steiner_point_calculation.cpp ../convexchasing.h 
+	g++ -c ../steiner_point_calculation.cpp
 
 test.o: test.cpp test.h
 	g++ -c test.cpp
+
 
 clean:
 	rm -f test test.o
